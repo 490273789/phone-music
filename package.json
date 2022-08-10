@@ -9,8 +9,7 @@
     "preview": "vite preview",
     "lint": "",
     "lint:es": "eslint --ext .js,.jsx,.ts,.tsx --fix --quiet ./",
-    "lint:style": "stylelint --fix \"src/**/*.{css,scss}\"",
-    "postinstall": "husky install"
+    "lint:style": "stylelint --fix \"src/**/*.{css,scss}\""
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -54,6 +53,7 @@
     "typescript": "^4.7.4",
     "vite": "^3.0.5",
     "vite-plugin-eslint": "^1.7.0",
+    "vite-plugin-imagemin": "^0.6.1",
     "vite-plugin-stylelint": "^3.0.6"
   }
 }

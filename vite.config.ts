@@ -4,11 +4,15 @@ import react from '@vitejs/plugin-react'
 import eslint from 'vite-plugin-eslint'
 import stylelint from 'vite-plugin-stylelint'
 import autoprefixer from 'autoprefixer'
+import imagemin from 'vite-plugin-imagemin'
 
 const variablePath = normalizePath(path.resolve('./src/style/variable.scss'))
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  resolve: {
+    alias: { '@assets': path.join(__dirname, 'src/assets') }
+  },
   // css相关配置
   css: {
     postcss: {
@@ -35,6 +39,28 @@ export default defineConfig({
     // 以命令行的方式展示出代码中的规范问题，并能够直接定位到原文件。
     eslint(),
     // 以命令行的方式展示出样式代码中的规范问题，并能够直接定位到原文件。
-    stylelint({ fix: true })
+    stylelint({ fix: true }),
+    imagemin({
+      // 无损压缩配置，无损压缩下图片质量不会变差
+      optipng: {
+        optimizationLevel: 7
+      },
+      // 有损压缩配置，有损压缩下图片质量可能会变差
+      pngquant: {
+        quality: [0.8, 0.9]
+      },
+      // svg 优化
+      svgo: {
+        plugins: [
+          {
+            name: 'removeViewBox'
+          },
+          {
+            name: 'removeEmptyAttrs',
+            active: false
+          }
+        ]
+      }
+    })
   ]
 })
