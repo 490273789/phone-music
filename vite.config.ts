@@ -10,9 +10,6 @@ const variablePath = normalizePath(path.resolve('./src/style/variable.scss'))
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  resolve: {
-    alias: { '@assets': path.join(__dirname, 'src/assets') }
-  },
   // css相关配置
   css: {
     postcss: {
@@ -62,5 +59,12 @@ export default defineConfig({
         ]
       }
     })
-  ]
+  ],
+  resolve: {
+    alias: {
+      '@': path.join(__dirname, 'src'),
+      '@assets': path.join(__dirname, 'src/assets'),
+      '@components': path.join(__dirname, 'src/components')
+    }
+  }
 })

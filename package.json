@@ -12,17 +12,16 @@
     "lint:style": "stylelint --fix \"src/**/*.{css,scss}\""
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.4",
     "axios": "^0.27.2",
     "better-scroll": "^2.4.2",
-    "immutable": "^4.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-image": "^4.0.3",
     "react-lazyload": "^3.2.0",
     "react-redux": "^8.0.2",
+    "react-router-dom": "^6.3.0",
     "redux": "^4.2.0",
-    "redux-immutable": "^4.0.0",
-    "redux-thunk": "^2.4.1",
     "swiper": "^8.3.2"
   },
   "lint-staged": {
@@ -30,7 +29,7 @@
       "npm run lint:es",
       "git add ."
     ],
-    "**/*.{scss}": [
+    "**/*.{scss.css}": [
       "npm run lint:style",
       "git add ."
     ]
@@ -45,10 +44,9 @@
     "@types/react-dom": "^18.0.6",
     "@types/react-lazyload": "^3.2.0",
     "@types/react-redux": "^7.1.24",
-    "@types/redux-immutable": "^4.0.3",
     "@typescript-eslint/eslint-plugin": "^5.33.0",
     "@typescript-eslint/parser": "^5.33.0",
-    "@vitejs/plugin-react": "^2.0.0",
+    "@vitejs/plugin-react": "^2.0.1",
     "autoprefixer": "^10.4.8",
     "commitlint": "^17.0.3",
     "eslint": "^8.21.0",
@@ -66,7 +64,7 @@
     "stylelint-config-standard-scss": "^5.0.0",
     "stylelint-prettier": "^2.0.0",
     "typescript": "^4.7.4",
-    "vite": "^3.0.5",
+    "vite": "^3.0.6",
     "vite-plugin-eslint": "^1.7.0",
     "vite-plugin-imagemin": "^0.6.1",
     "vite-plugin-stylelint": "^3.0.6"
