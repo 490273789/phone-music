@@ -6,7 +6,7 @@
   padding: 5px 10px;
   font-size: 20px;
   color: #f1f1f1;
-  background-color: $main-color;
+  background-color: $theme-color;
 }
 
 .tab-wrap {
@@ -15,7 +15,7 @@
   justify-content: space-between;
   height: 44px;
   color: #fff;
-  background-color: $main-color;
+  background-color: $theme-color;
 
   > li {
     flex: 1;
