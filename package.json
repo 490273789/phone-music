@@ -29,7 +29,7 @@
       "npm run lint:es",
       "git add ."
     ],
-    "**/*.{scss.css}": [
+    "**/*.{scss,css}": [
       "npm run lint:style",
       "git add ."
     ]
