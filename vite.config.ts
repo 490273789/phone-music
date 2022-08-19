@@ -5,6 +5,7 @@ import eslint from 'vite-plugin-eslint'
 import stylelint from 'vite-plugin-stylelint'
 import autoprefixer from 'autoprefixer'
 import imagemin from 'vite-plugin-imagemin'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 const variablePath = normalizePath(path.resolve('./src/style/variable.scss'))
 
@@ -58,6 +59,9 @@ export default defineConfig({
           }
         ]
       }
+    }),
+    createSvgIconsPlugin({
+      iconDirs: [path.join(__dirname, 'src/assets/icons/')]
     })
   ],
   resolve: {
