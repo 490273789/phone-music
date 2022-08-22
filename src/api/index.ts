@@ -1,6 +1,6 @@
 import axios from '../utils/request'
-
-export const getBannerRequest = () => {
+import { BannerData } from '@/views/recommend/type'
+export const getBannerRequest = (): Promise<BannerData> => {
   return axios.get('/banner')
 }
 
@@ -12,12 +12,12 @@ export const getHotSingerListRequest = (count: number) => {
   return axios.get(`/top/artists?offset=${count}`)
 }
 
-export const getSingerListRequest = (params) => {
-  return axios.request({
-    url: '/artist/list',
-    params
-  })
-}
+// export const getSingerListRequest = (params) => {
+//   return axios.request({
+//     url: '/artist/list',
+//     params
+//   })
+// }
 
 // export const getRankListRequest = () => {
 //   return axios.get('/toplist/detail')

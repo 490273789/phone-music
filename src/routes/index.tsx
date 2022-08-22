@@ -57,7 +57,7 @@ const routes: RouteObject[] = [
 // 返回懒加载元素
 const LazyElement = (path: string): ReactNode => {
   const ImportComponent = lazy(
-    () => import(/* @vite-ignore */ `@/views/${path}`)
+    () => import(/* @vite-ignore */ `@/views/${path}/index.tsx`)
   )
   return (
     <Suspense fallback={<Loading />}>
@@ -67,13 +67,19 @@ const LazyElement = (path: string): ReactNode => {
 }
 
 // 将懒加载元素安装到routes中
-const handleFilterElement = (routers: RouteObject[]) => {
-  return routers.map((ele) => {
-    if (isString(ele.element)) ele.element = LazyElement(ele.element as string)
-    return ele
+const handleFilterElement = (routes: RouteObject[]) => {
+  const res: RouteObject[] = []
+  routes.forEach((ele) => {
+    const temp: RouteObject = { ...ele }
+    if (ele.children?.length) temp.children = handleFilterElement(ele.children)
+    if (isString(ele.element)) temp.element = LazyElement(ele.element as string)
+    res.push(temp)
   })
+  return res
 }
 
 const finalRoutes = handleFilterElement(routes)
+
+console.log(finalRoutes)
 
 export default finalRoutes

@@ -1,5 +1,5 @@
 import { combineReducers } from '@reduxjs/toolkit'
-import recommendReducer from '../views/recommend/store/slice'
+import recommendReducer from '@/views/recommend/store'
 
 const reducers = {
   recommend: recommendReducer
