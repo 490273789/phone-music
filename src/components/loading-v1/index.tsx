@@ -1,9 +1,11 @@
 import { memo } from 'react'
+import styles from './index.module.scss'
 
 const Loading = () => {
   return (
-    <div>
-      <div>123</div>
+    <div className={styles['loading-wrap']}>
+      <div></div>
+      <div></div>
     </div>
   )
 }

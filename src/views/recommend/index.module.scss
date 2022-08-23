@@ -1,8 +1,15 @@
-.header {
-  width: 200px;
-  height: 300px;
-  color: $theme-color;
-  text-align: center;
-  text-decoration: dashed;
-  background: #eee;
+.recommend-wrap {
+  .recommend-title {
+    padding-left: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 60px;
+  }
+
+  .recommend-list {
+    .list-item {
+      position: relative;
+      width: 32%;
+    }
+  }
 }

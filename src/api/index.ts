@@ -1,10 +1,10 @@
 import axios from '../utils/request'
-import { BannerData } from '@/views/recommend/type'
+import { BannerData, RecommendData } from '@/views/recommend/type'
 export const getBannerRequest = (): Promise<BannerData> => {
   return axios.get('/banner')
 }
 
-export const getRecommendListRequest = () => {
+export const getRecommendListRequest = (): Promise<RecommendData> => {
   return axios.get('/personalized')
 }
 

@@ -1,11 +1,11 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Banners } from '../type'
-import { getBannerRequest } from '@/api/index'
+import { Banners, RecommendItem } from '../type'
+import { getBannerRequest, getRecommendListRequest } from '@/api/index'
 
 //声明状态进行接收
-interface recommendState {
+export interface recommendState {
   bannerList: Banners[]
-  recommendList: []
+  recommendList: RecommendItem[]
   enterLoading: boolean
 }
 
@@ -16,8 +16,13 @@ const initialState: recommendState = {
 }
 
 export const getBannerData = createAsyncThunk(
-  'recommend/getRecommend',
+  'recommend/getBanners',
   async () => await getBannerRequest()
+)
+
+export const getRecommendData = createAsyncThunk(
+  'recommend/getRecommend',
+  async () => await getRecommendListRequest()
 )
 
 export const stuSlice = createSlice({
@@ -44,6 +49,9 @@ export const stuSlice = createSlice({
   extraReducers(builder) {
     builder.addCase(getBannerData.fulfilled, (state, { payload }) => {
       state.bannerList = payload.banners
+    })
+    builder.addCase(getRecommendData.fulfilled, (state, { payload }) => {
+      state.recommendList = payload.result
     })
   }
 })
