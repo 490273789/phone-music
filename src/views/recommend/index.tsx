@@ -10,7 +10,7 @@ const Recommend = () => {
 
   useEffect(() => {
     if (!bannerList.length) dispatch(getBannerData())
-  }, [])
+  }, [bannerList, dispatch])
 
   return (
     <div>
