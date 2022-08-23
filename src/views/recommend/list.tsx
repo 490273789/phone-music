@@ -13,9 +13,9 @@ const List = () => {
   }, [recommendList, dispatch])
 
   return (
-    <div className={styles['recommend-wrap']}>
-      <h1 className={styles['recommend-title']}>推荐歌单</h1>
-      <div className={styles['recommend-list']}>
+    <div>
+      <h1 className={styles['list-title']}>推荐歌单</h1>
+      <div className={styles['list-list']}>
         {recommendList.map((item) => {
           return (
             <div key={item.id} className={styles['list-item']}>

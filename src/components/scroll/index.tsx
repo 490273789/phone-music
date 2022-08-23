@@ -1,11 +1,18 @@
-import { forwardRef, memo, ReactElement, useRef, useState } from 'react'
+import {
+  forwardRef,
+  memo,
+  ReactElement,
+  useRef,
+  useState,
+  useImperativeHandle
+} from 'react'
 import BScroll, { BScrollInstance } from '@better-scroll/core'
 import styles from './index.module.scss'
 import { useEffect } from 'react'
 import { BScrollConstructor } from '@better-scroll/core/dist/types/BScroll'
 
 export interface ScrollProps {
-  direction: 'vertical' | 'horizontal'
+  direction?: 'vertical' | 'horizontal'
   click?: boolean
   refresh?: boolean
   onScroll?: () => undefined
@@ -23,12 +30,10 @@ const Scroll = forwardRef(
     {
       direction = 'vertical',
       click = true,
-      refresh = false,
+      refresh = true,
       onScroll,
       pullUp,
       pullDown,
-      pullUpLoading = false,
-      pullDownLoading = false,
       bounceTop = true,
       bounceBottom = true,
       children
@@ -52,7 +57,7 @@ const Scroll = forwardRef(
       })
       setBScroll(scroll)
       return () => setBScroll(undefined)
-    }, [])
+    }, [bounceTop, bounceBottom, click, direction])
 
     // 滚动时触发
     useEffect(() => {
@@ -92,10 +97,25 @@ const Scroll = forwardRef(
     }, [bScroll, pullDown])
 
     useEffect(() => {
+      console.log(refresh, bScroll)
       if (refresh && bScroll) {
         bScroll.refresh()
       }
     }, [refresh, bScroll])
+
+    useImperativeHandle(ref, () => ({
+      refresh() {
+        if (bScroll) {
+          bScroll.refresh()
+          bScroll.scrollTo(0, 0)
+        }
+      },
+      getBScroll() {
+        if (bScroll) {
+          return bScroll
+        }
+      }
+    }))
 
     return (
       <div className={styles['scroll-container']} ref={scrollContainerRef}>
@@ -106,4 +126,5 @@ const Scroll = forwardRef(
   }
 )
 Scroll.displayName = 'Scroll'
+
 export default memo(Scroll)

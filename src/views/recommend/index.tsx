@@ -3,6 +3,9 @@ import Slider from '@/components/slider'
 import { useAppDispatch, useAppSelector } from '@/hooks/react-redux'
 import { getBannerData } from './store'
 import List from './list'
+import Scroll from '@/components/scroll'
+import styles from './index.module.scss'
+
 const Recommend = () => {
   const dispatch = useAppDispatch()
 
@@ -13,9 +16,13 @@ const Recommend = () => {
   }, [bannerList, dispatch])
 
   return (
-    <div>
-      <Slider list={bannerList} />
-      <List />
+    <div className={styles['recommend-wrap']}>
+      <Scroll>
+        <div>
+          <Slider list={bannerList} />
+          <List />
+        </div>
+      </Scroll>
     </div>
   )
 }

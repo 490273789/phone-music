@@ -1,12 +1,18 @@
 .recommend-wrap {
-  .recommend-title {
+  position: fixed;
+  top: 94px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  .list-title {
     padding-left: 6px;
     font-size: 14px;
     font-weight: 700;
     line-height: 60px;
   }
 
-  .recommend-list {
+  .list-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
