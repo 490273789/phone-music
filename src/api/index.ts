@@ -1,16 +1,32 @@
 import axios from '../utils/request'
 import { BannerData, RecommendData } from '@/views/recommend/type'
+import { SingerListParams, SingerDataResponse } from '@/views/singer/type'
+
+// 推荐页轮播图
 export const getBannerRequest = (): Promise<BannerData> => {
   return axios.get('/banner')
 }
 
+// 推荐列表
 export const getRecommendListRequest = (): Promise<RecommendData> => {
   return axios.get('/personalized')
 }
 
-export const getHotSingerListRequest = (count: number) => {
+// 获取热门歌手列表
+export const getHotSingerListRequest = (
+  count: number
+): Promise<SingerDataResponse> => {
   return axios.get(`/top/artists?offset=${count}`)
 }
+
+// 获取歌手列表
+export const getSingerListRequest = (
+  params: SingerListParams
+): Promise<SingerDataResponse> =>
+  axios.request({
+    url: '/artist/list',
+    params
+  })
 
 // export const getSingerListRequest = (params) => {
 //   return axios.request({

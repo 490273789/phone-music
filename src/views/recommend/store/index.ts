@@ -56,6 +56,4 @@ export const stuSlice = createSlice({
   }
 })
 
-// export const { changeName, changeId } = stuSlice.actions
-// export const student = (state: RootState) => state.student
 export default stuSlice.reducer

@@ -97,7 +97,6 @@ const Scroll = forwardRef(
     }, [bScroll, pullDown])
 
     useEffect(() => {
-      console.log(refresh, bScroll)
       if (refresh && bScroll) {
         bScroll.refresh()
       }
