@@ -5,7 +5,6 @@ specifiers:
   '@commitlint/cli': ^17.0.3
   '@commitlint/config-conventional': ^17.0.3
   '@reduxjs/toolkit': ^1.8.4
-  '@types/axios': ^0.14.0
   '@types/better-scroll': ^1.12.4
   '@types/node': ^18.6.5
   '@types/react': ^18.0.17
@@ -25,6 +24,7 @@ specifiers:
   eslint-plugin-react-hooks: ^4.6.0
   husky: ^8.0.1
   lint-staged: ^13.0.3
+  postcss: ^8.4.16
   prettier: ^2.7.1
   react: ^18.2.0
   react-dom: ^18.2.0
@@ -64,7 +64,6 @@ dependencies:
 devDependencies:
   '@commitlint/cli': 17.0.3
   '@commitlint/config-conventional': 17.0.3
-  '@types/axios': 0.14.0
   '@types/better-scroll': 1.12.4
   '@types/node': 18.6.5
   '@types/react': 18.0.17
@@ -74,7 +73,7 @@ devDependencies:
   '@typescript-eslint/eslint-plugin': 5.33.0_njno5y7ry2l2lcmiu4tywxkwnq
   '@typescript-eslint/parser': 5.33.0_qugx7qdu5zevzvxaiqyxfiwquq
   '@vitejs/plugin-react': 2.0.1_vite@3.0.9
-  autoprefixer: 10.4.8
+  autoprefixer: 10.4.8_postcss@8.4.16
   commitlint: 17.0.3
   eslint: 8.21.0
   eslint-config-prettier: 8.5.0_eslint@8.21.0
@@ -83,13 +82,14 @@ devDependencies:
   eslint-plugin-react-hooks: 4.6.0_eslint@8.21.0
   husky: 8.0.1
   lint-staged: 13.0.3
+  postcss: 8.4.16
   prettier: 2.7.1
   sass: 1.54.4
   stylelint: 14.9.1
   stylelint-config-prettier: 9.0.3_stylelint@14.9.1
   stylelint-config-recess-order: 3.0.0_stylelint@14.9.1
   stylelint-config-standard: 26.0.0_stylelint@14.9.1
-  stylelint-config-standard-scss: 5.0.0_stylelint@14.9.1
+  stylelint-config-standard-scss: 5.0.0_cujuozyz774mlknuvi23rtftku
   stylelint-prettier: 2.0.0_ajb4dyjcjxvkvtnz4mzu4n3pcq
   typescript: 4.7.4
   vite: 3.0.9_sass@1.54.4
@@ -725,15 +725,6 @@ packages:
     resolution: {integrity: sha512-yOlFc+7UtL/89t2ZhjPvvB/DeAr3r+Dq58IgzsFkOAvVC6NMJXmCGjbptdXdR9qsX7pKcTL+s87FtYREi2dEEQ==}
     dev: true
 
-  /@types/axios/0.14.0:
-    resolution: {integrity: sha512-KqQnQbdYE54D7oa/UmYVMZKq7CO4l8DEENzOKc4aBRwxCXSlJXGz83flFx5L7AWrOQnmuN3kVsRdt+GZPPjiVQ==}
-    deprecated: This is a stub types definition for axios (https://github.com/mzabriskie/axios). axios provides its own type definitions, so you don't need @types/axios installed!
-    dependencies:
-      axios: 0.27.2
-    transitivePeerDependencies:
-      - debug
-    dev: true
-
   /@types/better-scroll/1.12.4:
     resolution: {integrity: sha512-mSp1CULFPnfotPUuJC9RXG6PaVhqJt0bMbo9wXyUypteSM6o0O9pHZCqY4HQX2KqUXqwtxIvUja1q+rWf3CR7g==}
     dev: true
@@ -1226,6 +1217,7 @@ packages:
 
   /asynckit/0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
+    dev: false
 
   /atob/2.1.2:
     resolution: {integrity: sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==}
@@ -1233,7 +1225,7 @@ packages:
     hasBin: true
     dev: true
 
-  /autoprefixer/10.4.8:
+  /autoprefixer/10.4.8_postcss@8.4.16:
     resolution: {integrity: sha512-75Jr6Q/XpTqEf6D2ltS5uMewJIx5irCU1oBYJrWjFenq/m12WRRrz6g15L1EIoYvPLXTbEry7rDOwrcYNj77xw==}
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
@@ -1245,6 +1237,7 @@ packages:
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
+      postcss: 8.4.16
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -1255,6 +1248,7 @@ packages:
       form-data: 4.0.0
     transitivePeerDependencies:
       - debug
+    dev: false
 
   /balanced-match/1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
@@ -1651,6 +1645,7 @@ packages:
     engines: {node: '>= 0.8'}
     dependencies:
       delayed-stream: 1.0.0
+    dev: false
 
   /commander/2.20.3:
     resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
@@ -2028,6 +2023,7 @@ packages:
   /delayed-stream/1.0.0:
     resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
     engines: {node: '>=0.4.0'}
+    dev: false
 
   /diff/4.0.2:
     resolution: {integrity: sha512-58lmxKSA4BNyLz+HHMUzlOEpg09FV+ev6ZMe3vJihgdxzgcwZ8VoEEPmALCZG9LmqfVoNMMKpttIYTVG6uDY7A==}
@@ -2996,6 +2992,7 @@ packages:
     peerDependenciesMeta:
       debug:
         optional: true
+    dev: false
 
   /for-in/1.0.2:
     resolution: {integrity: sha512-7EwmXrOjyL+ChxMhmG5lnW9MPt1aIeZEwKhQzoBUdTV0N3zuwWDZYVJatDvZ2OyzPUvdIAZDsCetk3coyMfcnQ==}
@@ -3009,6 +3006,7 @@ packages:
       asynckit: 0.4.0
       combined-stream: 1.0.8
       mime-types: 2.1.35
+    dev: false
 
   /fraction.js/4.2.0:
     resolution: {integrity: sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==}
@@ -4446,6 +4444,7 @@ packages:
     engines: {node: '>= 0.6'}
     dependencies:
       mime-db: 1.52.0
+    dev: false
 
   /mimic-fn/2.1.0:
     resolution: {integrity: sha512-OqbOk5oEQeAZ8WXWydlu9HJjz9WVdEIvamMCcXmuqUYjTknH/sqsWvhQ3vgwKFRR1HpjvNBKQ37nbJgYzGqGcg==}
@@ -5034,11 +5033,13 @@ packages:
       postcss: 8.4.16
     dev: true
 
-  /postcss-scss/4.0.4:
+  /postcss-scss/4.0.4_postcss@8.4.16:
     resolution: {integrity: sha512-aBBbVyzA8b3hUL0MGrpydxxXKXFZc5Eqva0Q3V9qsBOLEMsjb6w49WfpsoWzpEgcqJGW4t7Rio8WXVU9Gd8vWg==}
     engines: {node: '>=12.0'}
     peerDependencies:
       postcss: ^8.3.3
+    dependencies:
+      postcss: 8.4.16
     dev: true
 
   /postcss-selector-parser/6.0.10:
@@ -6032,12 +6033,12 @@ packages:
       stylelint-order: 5.0.0_stylelint@14.9.1
     dev: true
 
-  /stylelint-config-recommended-scss/7.0.0_stylelint@14.9.1:
+  /stylelint-config-recommended-scss/7.0.0_cujuozyz774mlknuvi23rtftku:
     resolution: {integrity: sha512-rGz1J4rMAyJkvoJW4hZasuQBB7y9KIrShb20l9DVEKKZSEi1HAy0vuNlR8HyCKy/jveb/BdaQFcoiYnmx4HoiA==}
     peerDependencies:
       stylelint: ^14.4.0
     dependencies:
-      postcss-scss: 4.0.4
+      postcss-scss: 4.0.4_postcss@8.4.16
       stylelint: 14.9.1
       stylelint-config-recommended: 8.0.0_stylelint@14.9.1
       stylelint-scss: 4.3.0_stylelint@14.9.1
@@ -6053,13 +6054,13 @@ packages:
       stylelint: 14.9.1
     dev: true
 
-  /stylelint-config-standard-scss/5.0.0_stylelint@14.9.1:
+  /stylelint-config-standard-scss/5.0.0_cujuozyz774mlknuvi23rtftku:
     resolution: {integrity: sha512-zoXLibojHZYPFjtkc4STZtAJ2yGTq3Bb4MYO0oiyO6f/vNxDKRcSDZYoqN260Gv2eD5niQIr1/kr5SXlFj9kcQ==}
     peerDependencies:
       stylelint: ^14.9.0
     dependencies:
       stylelint: 14.9.1
-      stylelint-config-recommended-scss: 7.0.0_stylelint@14.9.1
+      stylelint-config-recommended-scss: 7.0.0_cujuozyz774mlknuvi23rtftku
       stylelint-config-standard: 26.0.0_stylelint@14.9.1
     transitivePeerDependencies:
       - postcss
